@@ -10,7 +10,7 @@ from group.models import Grupo
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True)
-    grupo = models.ForeignKey(Grupo,on_delete=models.CASCADE)
+    grupo = models.ManyToManyField(to=Grupo)
     is_staff = models.BooleanField(
         default=False, help_text=_("Designates whether the user can log into this admin site.")
     )
